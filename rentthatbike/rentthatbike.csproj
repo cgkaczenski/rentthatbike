@@ -66,7 +66,38 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="Content\app\app.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular-route.min.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\angular.min.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
+    <None Include="scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="scripts\app\app.js" />
+    <Content Include="scripts\app\controllers\applicationController.js" />
+    <Content Include="scripts\app\controllers\bicyclesController.js" />
+    <Content Include="scripts\app\views\bicyclesIndex.html" />
+    <Content Include="scripts\app\views\default.html" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-1.9.0.js" />
+    <Content Include="scripts\jquery-1.9.0.min.js" />
+    <Content Include="scripts\jquery-1.9.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,10 +106,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="scripts\ui-bootstrap-0.10.0.js" />
+    <Content Include="scripts\ui-bootstrap-0.10.0.min.js" />
+    <Content Include="scripts\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="scripts\ui-bootstrap-tpls-0.10.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="scripts\app\services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
