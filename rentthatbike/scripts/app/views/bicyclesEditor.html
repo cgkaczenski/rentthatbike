@@ -2,7 +2,13 @@
     <div class="col-md-12">
         <form name="bicycleForm" role="form" class="form-horizontal" novalidate ng-submit="submit()">
             <fieldset>
-                <legend>Add new bicycle</legend>
+                <legend>{{formTitle}}</legend>
+                <div class="form-group" ng-show="!isNew">
+                    <label for="inputId" class="col-md-2 control-label">Id</label>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control" name="inputId" value="{{bicycle.id}}" disabled>
+                    </div>
+                </div>
                 <div class="form-group" ng-class="{'has-error': bicycleForm.inputName.$invalid}">
                     <label for="inputName" class="col-md-2 control-label">Name</label>
                     <div class="col-md-4">
@@ -25,7 +31,9 @@
                 </div>
                 <div class="form-group" ng-class="{'has-error': bicycleForm.inputQuantity.$invalid}">
                     <label for="inputQuantity" class="col-md-2 control-label">Quantity</label>
-                    <div class="col-md-1">
+                    <!--http://stackoverflow.com/questions/30026855/can-i-give-the-col-md-1-5-in-bootstrap
+                        The bootstrap column width doesn't size appropriatly cutting off the data for input-->
+                    <div class="col-md-1" style="width: 12.499999995%">
                         <input type="number" class="form-control" name="inputQuantity" required ng-model="bicycle.quantity" min="1">
                     </div>
                     <div class="col-md-2">
@@ -35,7 +43,7 @@
                 </div>
                 <div class="form-group" ng-class="{'has-error': bicycleForm.inputRentPrice.$invalid}">
                     <label for="inputRentPrice" class="col-md-2 control-label">Daily rental price</label>
-                    <div class="col-md-1">
+                    <div class="col-md-1" style="width: 12.499999995%">
                         <input type="number" class="form-control" name="inputRentPrice" required ng-model="bicycle.rentPrice" min="1">
                     </div>
                     <div class="col-md-2">
@@ -45,8 +53,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" ng-disabled="bicycleForm.$invalid" class="btn btn-primary">Add new bicycle</button>
-                        <button type="button" class="btn">Cancel</button>
+                        <button type="submit" ng-disabled="bicycleForm.$invalid" class="btn btn-primary">{{formTitle}}</button>
+                        <button type="button" class="btn" ng-click="cancel()">Cancel</button>
                     </div>
                 </div>
             </fieldset>
