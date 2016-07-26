@@ -15,7 +15,9 @@
                 .when('/bicycles', { templateUrl: 'scripts/app/views/bicyclesIndex.html', controller: 'BicyclesController' })
                 .when('/bicycles/new', { templateUrl: 'scripts/app/views/bicyclesEditor.html', controller: 'BicycleController' })
                 .when('/bicycles/:bicycleId/edit', { templateUrl: 'scripts/app/views/bicyclesEditor.html', controller: 'BicycleController' })
-                .when('/customers', { templateUrl: 'scripts/app/views/customersIndex.html' })
+                .when('/customers', { templateUrl: 'scripts/app/views/customersIndex.html', controller: 'CustomersController' })
+                .when('/customers/new', { templateUrl: 'Scripts/app/views/customerEditor.html', controller: 'CustomerController' })
+                .when('/customers/:customerId/edit', { templateUrl: 'Scripts/app/views/customerEditor.html', controller: 'CustomerController' })
                 .when('/rentals', { templateUrl: 'scripts/app/views/rentalsIndex.html' });
         }
     ]);
