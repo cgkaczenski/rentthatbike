@@ -94,13 +94,18 @@
     <Content Include="scripts\app\controllers\bicyclesController.js" />
     <Content Include="scripts\app\controllers\customerController.js" />
     <Content Include="scripts\app\controllers\customersController.js" />
+    <Content Include="scripts\app\controllers\rentalController.js" />
+    <Content Include="scripts\app\controllers\rentalsController.js" />
     <Content Include="scripts\app\services\bicyclesService.js" />
     <Content Include="scripts\app\services\customersService.js" />
+    <Content Include="scripts\app\services\rentalsService.js" />
     <Content Include="scripts\app\views\bicyclesIndex.html" />
     <Content Include="scripts\app\views\bicyclesEditor.html" />
     <Content Include="scripts\app\views\customerEditor.html" />
     <Content Include="scripts\app\views\customersIndex.html" />
     <Content Include="scripts\app\views\default.html" />
+    <Content Include="scripts\app\views\rentalsEditor.html" />
+    <Content Include="scripts\app\views\rentalsIndex.html" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-1.9.0.js" />
@@ -115,6 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="scripts\moment-with-locales.js" />
+    <Content Include="scripts\moment-with-locales.min.js" />
+    <Content Include="scripts\moment.js" />
+    <Content Include="scripts\moment.min.js" />
     <Content Include="scripts\ui-bootstrap-0.10.0.js" />
     <Content Include="scripts\ui-bootstrap-0.10.0.min.js" />
     <Content Include="scripts\ui-bootstrap-tpls-0.10.0.js" />

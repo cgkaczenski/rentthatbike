@@ -8,4 +8,4 @@
                 $scope.customers = customersService.getCustomers();
             }
     ]);
-})();
+})(); 
