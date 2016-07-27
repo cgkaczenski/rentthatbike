@@ -15,20 +15,27 @@
                     $scope.bicycle = bicyclesService.createBicycle();
                     $scope.formTitle = "Add new bicycle";
                 } else {
-                    originalBicyle = bicyclesService.getBicycle($routeParams.bicycleId);
-                    $scope.bicycle = angular.copy(originalBicyle);
                     $scope.formTitle = "Update bicycle";
+                    originalBicyle = bicyclesService.getBicycle($routeParams.bicycleId);
+                    originalBicyle.$promise.then(function () {
+                        $scope.bicycle = angular.copy(originalBicyle);
+                    });
                 }
 
                 $scope.submit = function () {
                     if ($scope.isNew) {
-                        bicyclesService.addBicycle($scope.bicycle);
+                        bicyclesService
+                            .addBicycle($scope.bicycle)
+                            .then(function () {
+                                $location.path('/bicycles');
+                            });
                     } else {
                         angular.copy($scope.bicycle, originalBicyle);
-                        bicyclesService.updateBicycle(originalBicyle);
+                        originalBicyle = bicyclesService.updateBicycle(originalBicyle);
+                        originalBicyle.$promise.then(function () {
+                            $location.path('/bicycles');
+                        });
                     }
-
-                    $location.path('/bicycles');
                 };
 
                 $scope.cancel = function () {

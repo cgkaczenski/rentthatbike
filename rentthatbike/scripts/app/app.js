@@ -5,6 +5,7 @@
         'myApp',
         [
             'ngRoute',
+            'ngResource',
             'ui.bootstrap'
         ]);
 
