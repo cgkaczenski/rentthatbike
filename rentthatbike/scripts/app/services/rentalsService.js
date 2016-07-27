@@ -6,13 +6,9 @@
     myAppModule.factory('rentalsService', [
         'bicyclesService', 'customersService',
         function (bicyclesService, customersService) {
-            var bicycles = bicyclesService.getBicycles();
             var customers = customersService.getCustomers();
 
-            var rentals = [
-                { id: 1, startDate: moment().startOf('day').weekday(0).toDate(), endDate: moment().startOf('day').weekday(0).toDate(), bicycleId: bicycles[0].id, bicycle: bicycles[0], quantity: 2, totalPrice: 2 * bicycles[0].rentPrice, paid: false, customerId: customers[0].id, customer: customers[0] },
-                { id: 2, startDate: moment().startOf('day').weekday(1).toDate(), endDate: moment().startOf('day').weekday(2).toDate(), bicycleId: bicycles[1].id, bicycle: bicycles[1], quantity: 1, totalPrice: 1 * bicycles[0].rentPrice, paid: true, customerId: customers[1].id, customer: customers[1] }
-            ];
+            var rentals = [];
 
             var updateRentalCustomer = function (rental) {
                 angular.forEach(customers, function (customer) {
