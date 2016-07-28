@@ -11,7 +11,7 @@
               { id: 4, name: "Children Bike" }
         ];
 
-        var BicycleResource = $resource('bicycles/:bicycleId', null,
+        var BicycleResource = $resource('api/bicycles/:bicycleId', null,
             {
                 'update': { method: 'PUT' }
             });
