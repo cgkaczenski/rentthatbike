@@ -13,7 +13,7 @@
 
         var BicycleResource = $resource('bicycles/:bicycleId', null,
             {
-                
+                'update': { method: 'PUT' }
             });
 
         var updateBicycleTypeName = function (bicycle) {
@@ -35,12 +35,12 @@
                 return bicycleTypes;
             },
             createBicycle: function () {
-                return {
+                return new BicycleResource({
                     type: bicycleTypes[0].id,
                     typeName: bicycleTypes[0].name,
                     quantity: 1,
                     rentPrice: 10
-                };
+                });
             },
             addBicycle: function (bicycle) {
                 updateBicycleTypeName(bicycle);
@@ -48,6 +48,7 @@
             },
             updateBicycle: function (bicycle) {
                 updateBicycleTypeName(bicycle);
+                return BicycleResource.update({ bicycleId: bicycle.id }, bicycle);
             }
         };
     }]);

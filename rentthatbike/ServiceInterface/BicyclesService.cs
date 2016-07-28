@@ -4,6 +4,12 @@ using System.Linq;
 using System.Web;
 using RentThatBike.Web.ServiceModel;
 using RentThatBike.Web.ServiceModel.Types;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using RentThatBike.Web.ServiceModel;
+using RentThatBike.Web.ServiceModel.Types;
 using ServiceStack.ServiceHost;
 
 namespace RentThatBike.Web.ServiceInterface
@@ -22,10 +28,20 @@ namespace RentThatBike.Web.ServiceInterface
             return BicyleRepository.Single(b => b.Id == request.Id);
         }
 
-        public Bicycle Post(PostBicycle request)
+        public Bicycle Post(Bicycle request)
         {
-            BicyleRepository.Add(request.Bicycle);
-            return request.Bicycle;
+            BicyleRepository.Add(request);
+            return request;
+        }
+
+        public Bicycle Put(Bicycle request)
+        {
+            Bicycle bicycle = BicyleRepository.Single(b => b.Id == request.Id);
+            bicycle.Name = request.Name;
+            bicycle.Type = request.Type;
+            bicycle.Quantity = request.Quantity;
+            bicycle.RentPrice = request.RentPrice;
+            return bicycle;
         }
     }
 } 

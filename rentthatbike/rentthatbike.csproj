@@ -175,8 +175,6 @@
     <Compile Include="ServiceInterface\BicyclesService.cs" />
     <Compile Include="ServiceModel\GetBicycle.cs" />
     <Compile Include="ServiceModel\GetBicycles.cs" />
-    <Compile Include="ServiceModel\PostBicycle.cs" />
-    <Compile Include="ServiceModel\PostBicycleValidator.cs" />
     <Compile Include="ServiceModel\Types\Bicycle.cs" />
     <Compile Include="ServiceModel\Types\BicycleRepository.cs" />
     <Compile Include="ServiceModel\Types\BicycleTypes.cs" />
