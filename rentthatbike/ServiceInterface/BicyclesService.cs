@@ -4,16 +4,12 @@ using System.Linq;
 using System.Web;
 using RentThatBike.Web.ServiceModel;
 using RentThatBike.Web.ServiceModel.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using RentThatBike.Web.ServiceModel;
-using RentThatBike.Web.ServiceModel.Types;
 using ServiceStack.ServiceHost;
+using ServiceStack.ServiceInterface;
 
 namespace RentThatBike.Web.ServiceInterface
 {
+    [Authenticate]
     public class BicyclesService : IService
     {
         public BicyleRepository BicyleRepository { get; set; }
