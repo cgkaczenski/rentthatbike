@@ -3,7 +3,7 @@
 
     var myAppModule = angular.module('myApp');
 
-    myAppModule.controller('BicyclesController', ['$scope', 'bicyclesService', 'usSpinnerService',
+    myAppModule.controller('BicyclesController', ['$scope', 'bicyclesService',
             function ($scope, bicyclesService, usSpinnerService) {
                 //usSpinnerService.spin("mainSpinner");
 

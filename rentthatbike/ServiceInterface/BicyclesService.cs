@@ -17,7 +17,7 @@ namespace RentThatBike.Web.ServiceInterface
         public BicyclesService() {
             Thread.Sleep(2000);
         }
-        //
+        */
 
         public BicycleRepository BicycleRepository { get; set; }
 

@@ -3,7 +3,7 @@
 
     var myAppModule = angular.module('myApp');
 
-    myAppModule.controller('BicycleController', ['$scope', '$location', '$routeParams', 'bicyclesService', 'usSpinnerService',
+    myAppModule.controller('BicycleController', ['$scope', '$location', '$routeParams', 'bicyclesService',
             function ($scope, $location, $routeParams, bicyclesService, usSpinnerService) {
                 $scope.isNew = !$routeParams.bicycleId;
 
