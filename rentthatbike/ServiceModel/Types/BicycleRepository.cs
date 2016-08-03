@@ -1,40 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
+using ServiceStack.OrmLite;
 
 namespace RentThatBike.Web.ServiceModel.Types
 {
-    public class BicycleRepository
+    public class BicycleRepository: IDisposable
     {
-        private List<Bicycle> _bicycles = new List<Bicycle>()
-        {
-            new Bicycle { Id = 1, Name = "Very fast bike", Type = BicycleTypes.RoadBike, Quantity = 5, RentPrice = 15 },
-            new Bicycle { Id = 2, Name = "Very springy bike", Type = BicycleTypes.MountainBike, Quantity = 20, RentPrice = 17 },
-            new Bicycle { Id = 3, Name = "Very classy bike", Type = BicycleTypes.UrbanBike, Quantity = 20, RentPrice = 14 },
-            new Bicycle { Id = 4, Name = "Very colorful bike", Type = BicycleTypes.ChildrenBike, Quantity = 20, RentPrice = 9 }
-        };
+        public IDbConnectionFactory DbConnectionFactory { get; set; }
 
-        public IEnumerable<Bicycle> GetAll()
+        private IDbConnection _db;
+        private IDbConnection Db
         {
-            return _bicycles;
+            get { return _db ?? (_db = DbConnectionFactory.Open()); }
         }
 
-        public IEnumerable<Bicycle> Get(Expression<Func<Bicycle, bool>> condition)
+        public List<Bicycle> GetAll()
         {
-            return _bicycles.Where(condition.Compile());
+            return Db.Select<Bicycle>();
+        }
+
+        public List<Bicycle> Get(Expression<Func<Bicycle, bool>> condition)
+        {
+            return Db.Select<Bicycle>(condition);
         }
 
         public Bicycle Single(Expression<Func<Bicycle, bool>> condition)
         {
-            return _bicycles.Single(condition.Compile());
+            return Db.Select<Bicycle>(condition).Single();
         }
 
         public void Add(Bicycle bicycle)
         {
-            bicycle.Id = _bicycles.Count + 1;
-            _bicycles.Add(bicycle);
+            Db.Insert(bicycle);
+            bicycle.Id = (int)Db.GetLastInsertId();
+        }
+
+        public Bicycle Update(Bicycle sourceBicycle)
+        {
+            Bicycle bicycle = Single(b => b.Id == sourceBicycle.Id);
+            bicycle.Name = sourceBicycle.Name;
+            bicycle.Type = sourceBicycle.Type;
+            bicycle.Quantity = sourceBicycle.Quantity;
+            bicycle.RentPrice = sourceBicycle.RentPrice;
+            Db.Update(bicycle);
+            return bicycle;
+        }
+
+        public void Dispose()
+        {
+            if (_db != null)
+            {
+                _db.Dispose();
+            }
         }
     }
 } 

@@ -25,7 +25,7 @@ namespace RentThatBike.Web.ServiceInterface
         {
             // This is to test displaying Server Errors to client
             //throw new Exception("Get bicycles list failed");
-            return BicycleRepository.GetAll().ToList();
+            return BicycleRepository.GetAll();
         }
 
         public Bicycle Get(GetBicycle request)
@@ -41,12 +41,7 @@ namespace RentThatBike.Web.ServiceInterface
 
         public Bicycle Put(Bicycle request)
         {
-            Bicycle bicycle = BicycleRepository.Single(b => b.Id == request.Id);
-            bicycle.Name = request.Name;
-            bicycle.Type = request.Type;
-            bicycle.Quantity = request.Quantity;
-            bicycle.RentPrice = request.RentPrice;
-            return bicycle;
+            return BicycleRepository.Update(request);
         }
     }
 } 
