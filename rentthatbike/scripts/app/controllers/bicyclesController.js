@@ -5,12 +5,12 @@
 
     myAppModule.controller('BicyclesController', ['$scope', 'bicyclesService', 'usSpinnerService',
             function ($scope, bicyclesService, usSpinnerService) {
-                usSpinnerService.spin("mainSpinner");
+                //usSpinnerService.spin("mainSpinner");
 
                 $scope.bicycles = bicyclesService.getBicycles();
 
                 $scope.bicycles.$promise.then(function () {
-                    usSpinnerService.stop("mainSpinner");
+                    //usSpinnerService.stop("mainSpinner");
                 });
             }
     ]);

@@ -16,29 +16,29 @@
                     $scope.formTitle = "Add new bicycle";
                 } else {
                     $scope.formTitle = "Update bicycle";
-                    usSpinnerService.spin("mainSpinner");
+                    //usSpinnerService.spin("mainSpinner");
                     originalBicyle = bicyclesService.getBicycle($routeParams.bicycleId);
                     originalBicyle.$promise.then(function () {
                         $scope.bicycle = angular.copy(originalBicyle);
-                        usSpinnerService.stop("mainSpinner");
+                        //usSpinnerService.stop("mainSpinner");
                     });
                 }
 
                 $scope.submit = function () {
                     if ($scope.isNew) {
-                        usSpinnerService.spin("mainSpinner");
+                        //usSpinnerService.spin("mainSpinner");
                         bicyclesService
                             .addBicycle($scope.bicycle)
                             .then(function () {
-                                usSpinnerService.stop("mainSpinner");
+                                //usSpinnerService.stop("mainSpinner");
                                 $location.path('/bicycles');
                             });
                     } else {
                         angular.copy($scope.bicycle, originalBicyle);
-                        usSpinnerService.spin("mainSpinner");
+                        //usSpinnerService.spin("mainSpinner");
                         originalBicyle = bicyclesService.updateBicycle(originalBicyle);
                         originalBicyle.$promise.then(function () {
-                            usSpinnerService.stop("mainSpinner");
+                            //usSpinnerService.stop("mainSpinner");
                             $location.path('/bicycles');
                         });
                     }
