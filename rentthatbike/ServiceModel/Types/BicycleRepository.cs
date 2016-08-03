@@ -6,7 +6,7 @@ using System.Web;
 
 namespace RentThatBike.Web.ServiceModel.Types
 {
-    public class BicyleRepository
+    public class BicycleRepository
     {
         private List<Bicycle> _bicycles = new List<Bicycle>()
         {

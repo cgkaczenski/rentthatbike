@@ -6,16 +6,19 @@
         [
             'ngRoute',
             'ngResource',
-            'ui.bootstrap'
+            'ui.bootstrap',
+            'angularSpinner'
         ]);
 
-    myAppModule.config(['$provide', function ($provide) {
+    myAppModule.config(['$provide', '$httpProvider', function ($provide, $httpProvider) {
         $provide.decorator('$exceptionHandler', ['$delegate', function ($delegate) {
             return function (exception, cause) {
                 $delegate(exception, cause);
                 alert(exception.message);
             };
         }]);
+
+        $httpProvider.interceptors.push('httpInterceptor');
     }]);
 
     myAppModule.config([

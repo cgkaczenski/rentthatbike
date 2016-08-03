@@ -10,7 +10,7 @@ namespace RentThatBike.Web.ServiceModel.Types
 {
     public class BicycleValidator : AbstractValidator<Bicycle>
     {
-        public BicycleValidator(BicyleRepository bicyleRepository)
+        public BicycleValidator(BicycleRepository BicycleRepository)
         {
             RuleFor(b => b.Name).NotEmpty();
             RuleFor(b => b.Quantity).GreaterThan(0);
@@ -22,7 +22,7 @@ namespace RentThatBike.Web.ServiceModel.Types
                 Custom(b =>
                 {
                     bool bicycleWithSameNameExists =
-                        bicyleRepository.Get(x => x.Name.ToLower() == b.Name.ToLower()).Any();
+                        BicycleRepository.Get(x => x.Name.ToLower() == b.Name.ToLower()).Any();
                     if (bicycleWithSameNameExists)
                     {
                         return new ValidationFailure("Name", "A bicycle with the same name already exists.",
@@ -38,7 +38,7 @@ namespace RentThatBike.Web.ServiceModel.Types
                 Custom(b =>
                 {
                     bool bicycleWithSameNameExists =
-                        bicyleRepository.Get(x => x.Name.ToLower() == b.Name.ToLower() && x.Id != b.Id).Any();
+                        BicycleRepository.Get(x => x.Name.ToLower() == b.Name.ToLower() && x.Id != b.Id).Any();
                     if (bicycleWithSameNameExists)
                     {
                         return new ValidationFailure("Name", "A bicycle with the same name already exists.",

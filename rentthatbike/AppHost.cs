@@ -41,8 +41,8 @@ namespace RentThatBike.Web
             Plugins.Add(new ValidationFeature());
             container.RegisterValidators(typeof(AppHost).Assembly);
 
-            Plugins.Add(new ValidationFeature());
-            container.RegisterAutoWired<BicyleRepository>();
+            container.Register<ICacheClient>(new MemoryCacheClient());
+            container.RegisterAutoWired<BicycleRepository>();
 
             Plugins.Add(new AuthFeature(
             () => new AuthUserSession(),
