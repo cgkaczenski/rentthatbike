@@ -1,0 +1,27 @@
+{
+  "name": "rentthatbike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgkaczenski/rentthatbike.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgkaczenski/rentthatbike/issues"
+  },
+  "homepage": "https://github.com/cgkaczenski/rentthatbike#readme",
+  "devDependencies": {
+    "karma": "^1.1.2",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-html2js-preprocessor": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "protractor": "^4.0.3"
+  }
+}
